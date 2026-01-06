@@ -1,0 +1,15 @@
+/* Typography: elegant + readable on mobile (Korean friendly) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-wedding-serif: 'Noto Serif KR', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+}
+
+body {
+  font-family: var(--font-wedding-serif);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+
