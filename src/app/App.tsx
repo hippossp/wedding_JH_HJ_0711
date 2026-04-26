@@ -130,7 +130,7 @@ export default function App() {
               <p className="text-sm text-rose-400 mb-3 tracking-wider">BRIDE</p>
               <p className="text-xl mb-6 text-neutral-900">희진</p>
               <div className="text-sm text-neutral-600 space-y-2">
-                <p>故 송원섭 · 김영희 <span className="text-neutral-400">의 장녀</span></p>
+                <p>故 송원섭 · 김영희 <span className="text-neutral-400">의 딸</span></p>
               </div>
             </motion.div>
           </div>
@@ -165,9 +165,9 @@ export default function App() {
             <div className="flex gap-4">
               <MapPin className="w-6 h-6 text-rose-400 flex-shrink-0" />
               <div>
-                <p className="text-neutral-900 mb-1">아모르웨딩</p>
+                <p className="text-neutral-900 mb-1">순천 아모르웨딩컨벤션</p>
+                <p className="text-neutral-600 text-sm">그랜드블룸홀(4층)</p>
                 <p className="text-neutral-600 text-sm">전라남도 순천시</p>
-                <p className="text-neutral-600 text-sm">4층</p>
               </div>
             </div>
           </div>
@@ -180,7 +180,7 @@ export default function App() {
           <Heart className="w-6 h-6 mx-auto text-rose-200 mb-4" />
           <h2 className="text-center text-3xl mb-12 text-neutral-900">오시는 길</h2>
           <MapSection 
-            placeName="아모르웨딩 4층"
+            placeName="순천 아모르웨딩컨벤션 그랜드블룸홀(4층)"
             address="전라남도 순천시"
             kakaoMapUrl="https://kko.to/YmVHV70OVg"
             naverMapUrl="https://naver.me/F2ZbqQ2N"

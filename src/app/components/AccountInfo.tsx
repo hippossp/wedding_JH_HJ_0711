@@ -10,13 +10,13 @@ interface Account {
 const accounts: { groom: Account; bride: Account } = {
   groom: {
     bank: '국민은행',
-    accountNumber: '123-456-789012',
-    holder: '김민수',
+    accountNumber: '579302-04-033281',
+    holder: '우준형',
   },
   bride: {
-    bank: '신한은행',
-    accountNumber: '987-654-321098',
-    holder: '이지은',
+    bank: '농협',
+    accountNumber: '302 0174 7317 61',
+    holder: '송희진',
   },
 };
 

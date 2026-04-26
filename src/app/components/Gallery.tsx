@@ -4,23 +4,58 @@ import { motion } from 'motion/react';
 const galleryImages = [
   {
     id: 1,
-    src: 'https://images.unsplash.com/photo-1765350226723-a96ab0705403?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwY291cGxlJTIwZWxlZ2FudHxlbnwxfHx8fDE3NjU5NzY4NDN8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    src: '/photos/wedding-1.jpg',
     alt: '웨딩 사진 1',
   },
   {
     id: 2,
-    src: 'https://images.unsplash.com/photo-1700142611715-8a023c5eb8c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwZmxvd2VycyUyMHdoaXRlfGVufDF8fHx8MTc2NTk3Njg0M3ww&ixlib=rb-4.1.0&q=80&w=1080',
+    src: '/photos/wedding-2.jpg',
     alt: '웨딩 사진 2',
   },
   {
     id: 3,
-    src: 'https://images.unsplash.com/photo-1696204868903-91d809b4df09?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwY2VyZW1vbnklMjB2ZW51ZXxlbnwxfHx8fDE3NjU5NDA1NDJ8MA&ixlib=rb-4.1.0&q=80&w=1080',
+    src: '/photos/wedding-3.jpg',
     alt: '웨딩 사진 3',
   },
   {
     id: 4,
-    src: 'https://images.unsplash.com/photo-1737498205245-dbb396c262ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZWRkaW5nJTIwcmluZ3MlMjBsb3ZlfGVufDF8fHx8MTc2NTk3Njg0NHww&ixlib=rb-4.1.0&q=80&w=1080',
+    src: '/photos/wedding-4.jpg',
     alt: '웨딩 사진 4',
+  },
+  {
+    id: 5,
+    src: '/photos/wedding-5.jpg',
+    alt: '웨딩 사진 5',
+  },
+  {
+    id: 6,
+    src: '/photos/wedding-6.jpg',
+    alt: '웨딩 사진 6',
+  },
+  {
+    id: 7,
+    src: '/photos/wedding-7.jpg',
+    alt: '웨딩 사진 7',
+  },
+  {
+    id: 8,
+    src: '/photos/wedding-8.jpg',
+    alt: '웨딩 사진 8',
+  },
+  {
+    id: 9,
+    src: '/photos/wedding-9.jpg',
+    alt: '웨딩 사진 9',
+  },
+  {
+    id: 10,
+    src: '/photos/wedding-10.jpg',
+    alt: '웨딩 사진 10',
+  },
+  {
+    id: 11,
+    src: '/photos/wedding-11.jpg',
+    alt: '웨딩 사진 11',
   },
 ];
 
@@ -44,6 +79,7 @@ export function Gallery() {
             src={image.src}
             alt={image.alt}
             className="w-full h-full object-cover"
+            loading="lazy"
           />
         </motion.div>
       ))}

@@ -9,7 +9,7 @@ export function ShareButton() {
   const handleShare = async () => {
     const shareData = {
       title: '준형 ♥ 희진 결혼식 초대',
-      text: '저희 두 사람의 결혼식에 초대합니다.\n\n2026년 7월 11일 토요일 오전 11시\n아모르웨딩 4층 (전라남도 순천시)\n\n따뜻한 마음으로 축복해 주시면 감사하겠습니다.',
+      text: '저희 두 사람의 결혼식에 초대합니다.\n\n2026년 7월 11일 토요일 오전 11시\n순천 아모르웨딩컨벤션 그랜드블룸홀(4층)\n\n따뜻한 마음으로 축복해 주시면 감사하겠습니다.',
       url: window.location.href,
     };
 
@@ -43,7 +43,7 @@ export function ShareButton() {
 
   const shareToKakao = () => {
     // 카카오톡 공유를 위한 URL 스킴
-    const text = encodeURIComponent('준형 ♥ 희진 결혼식에 초대합니다\n\n2026년 7월 11일 토요일 오전 11시\n아모르웨딩 4층');
+    const text = encodeURIComponent('준형 ♥ 희진 결혼식에 초대합니다\n\n2026년 7월 11일 토요일 오전 11시\n순천 아모르웨딩컨벤션 그랜드블룸홀(4층)');
     const url = encodeURIComponent(window.location.href);
     
     // 모바일 카카오톡 앱으로 공유 시도
