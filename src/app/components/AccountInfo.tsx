@@ -15,7 +15,7 @@ const accounts: { groom: Account; bride: Account } = {
   },
   bride: {
     bank: '농협',
-    accountNumber: '302 0174 7317 61',
+    accountNumber: '302-0174-7317-61',
     holder: '송희진',
   },
 };

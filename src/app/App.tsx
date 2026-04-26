@@ -167,7 +167,7 @@ export default function App() {
               <div>
                 <p className="text-neutral-900 mb-1">순천 아모르웨딩컨벤션</p>
                 <p className="text-neutral-600 text-sm">그랜드블룸홀(4층)</p>
-                <p className="text-neutral-600 text-sm">전라남도 순천시</p>
+                <p className="text-neutral-600 text-sm">전라남도 순천시 서면 압곡길 94</p>
               </div>
             </div>
           </div>
@@ -181,7 +181,7 @@ export default function App() {
           <h2 className="text-center text-3xl mb-12 text-neutral-900">오시는 길</h2>
           <MapSection 
             placeName="순천 아모르웨딩컨벤션 그랜드블룸홀(4층)"
-            address="전라남도 순천시"
+            address="전라남도 순천시 서면 압곡길 94"
             kakaoMapUrl="https://kko.to/YmVHV70OVg"
             naverMapUrl="https://naver.me/F2ZbqQ2N"
             googleMapUrl="https://maps.app.goo.gl/4EdkLPf5TfrjS6eN7"

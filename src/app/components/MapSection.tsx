@@ -79,15 +79,20 @@ export function MapSection({ placeName, address, kakaoMapUrl, naverMapUrl, googl
         <div className="space-y-3 text-sm text-neutral-700">
           <div>
             <p className="font-medium mb-1">기차</p>
-            <p className="text-neutral-600">순천역에서 택시 이용 약 10분 소요</p>
+            <p className="text-neutral-600">순천역에서 택시 이용 시 약 10~15분 소요 예상</p>
           </div>
           <div>
             <p className="font-medium mb-1">버스</p>
-            <p className="text-neutral-600">시내버스 이용 가능</p>
+            <p className="text-neutral-600">
+              순천역 또는 순천종합버스터미널에서 94번 버스 이용 가능
+            </p>
+            <p className="text-neutral-500 text-xs mt-1">
+              배차와 하차 정류장은 예식 당일 지도 앱에서 최신 경로를 확인해 주세요
+            </p>
           </div>
           <div>
             <p className="font-medium mb-1">주차</p>
-            <p className="text-neutral-600">건물 주차장 이용 가능</p>
+            <p className="text-neutral-600">아모르웨딩컨벤션 전용주차장 이용 가능</p>
           </div>
         </div>
       </div>
