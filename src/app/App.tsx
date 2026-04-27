@@ -6,6 +6,7 @@ import { ShareButton } from './components/ShareButton';
 import { ShareGuide } from './components/ShareGuide';
 import { MapSection } from './components/MapSection';
 import { FlowerPetal } from './components/FlowerPetal';
+import { BgmPlayer } from './components/BgmPlayer';
 import { motion } from 'motion/react';
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
     <div className="min-h-screen bg-gradient-to-b from-rose-50/30 via-white to-rose-50/20 max-w-2xl mx-auto pb-28 md:my-8 md:rounded-3xl md:border md:border-rose-100/60 md:shadow-xl overflow-hidden">
       {/* Flower Petal Animation */}
       <FlowerPetal />
+      <BgmPlayer />
       
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-white via-rose-50/20 to-white overflow-hidden">
