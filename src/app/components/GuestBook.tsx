@@ -329,6 +329,7 @@ export function GuestBook() {
           entries.map((entry) => {
             const canEdit = Boolean(editTokens[entry.id]);
             const canSeeMessage = isAdmin || canEdit;
+            const canSeeSide = isAdmin || canEdit;
 
             return (
               <div key={entry.id} className="p-6 bg-white rounded-lg border border-neutral-200">
@@ -337,9 +338,11 @@ export function GuestBook() {
                     <div className="flex items-center gap-2">
                       <Heart className="w-4 h-4 text-rose-500" fill="currentColor" />
                       <span className="font-medium">{entry.name}</span>
-                      <span className="rounded-full bg-rose-50 px-2 py-0.5 text-xs text-rose-500">
-                        {getSideLabel(entry.side)}
-                      </span>
+                      {canSeeSide && (
+                        <span className="rounded-full bg-rose-50 px-2 py-0.5 text-xs text-rose-500">
+                          {getSideLabel(entry.side)}
+                        </span>
+                      )}
                     </div>
                     <span className="text-xs text-neutral-400">{formatDate(entry.createdAt)}</span>
                   </div>
