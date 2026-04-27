@@ -6,6 +6,7 @@ interface Account {
   accountNumber: string;
   holder: string;
   kakaoPayUrl: string;
+  tossUrl: string;
   tossQrSrc: string;
 }
 
@@ -15,6 +16,8 @@ const accounts: { groom: Account; bride: Account } = {
     accountNumber: '579302-04-033281',
     holder: '우준형',
     kakaoPayUrl: 'https://qr.kakaopay.com/Ej8eZdjRa',
+    tossUrl:
+      'supertoss://send?amount=0&bank=KB%EA%B5%AD%EB%AF%BC%EC%9D%80%ED%96%89&accountNo=57930204033281&origin=qr',
     tossQrSrc: '/payment/groom-toss-qr.png',
   },
   bride: {
@@ -22,6 +25,8 @@ const accounts: { groom: Account; bride: Account } = {
     accountNumber: '302-0174-7317-61',
     holder: '송희진',
     kakaoPayUrl: 'https://qr.kakaopay.com/Ej7mp5r2D',
+    tossUrl:
+      'supertoss://send?amount=0&bank=NH%EB%86%8D%ED%98%91%EC%9D%80%ED%96%89&accountNo=3020174731761&origin=qr',
     tossQrSrc: '/payment/bride-toss-qr.png',
   },
 };
@@ -157,14 +162,13 @@ export function AccountInfo() {
                     카카오페이로 보내기
                     <ExternalLink className="h-4 w-4" />
                   </a>
-                  <button
-                    type="button"
-                    onClick={() => setDetailView('tossQr')}
+                  <a
+                    href={selectedAccount.tossUrl}
                     className="flex items-center justify-between rounded-xl bg-blue-50 px-4 py-3 text-sm font-medium text-blue-700"
                   >
-                    토스 QR 보기
-                    <QrCode className="h-4 w-4" />
-                  </button>
+                    토스로 보내기
+                    <ExternalLink className="h-4 w-4" />
+                  </a>
                   <button
                     type="button"
                     onClick={() => setDetailView('account')}
@@ -172,6 +176,14 @@ export function AccountInfo() {
                   >
                     계좌번호 보기
                     <Copy className="h-4 w-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setDetailView('tossQr')}
+                    className="flex items-center justify-between rounded-xl border border-blue-100 px-4 py-3 text-sm font-medium text-blue-600"
+                  >
+                    토스 QR로 보기
+                    <QrCode className="h-4 w-4" />
                   </button>
                 </div>
               )}
