@@ -1,5 +1,5 @@
 import { ImageWithFallback } from './figma/ImageWithFallback';
-import { useState } from 'react';
+import { useState, type CSSProperties, type TouchEvent, type WheelEvent } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 
 const galleryImages = [
@@ -85,8 +85,31 @@ const galleryImages = [
   },
 ];
 
+const protectedImageStyle = {
+  touchAction: 'none',
+  userSelect: 'none',
+  WebkitUserSelect: 'none',
+  WebkitTouchCallout: 'none',
+} as CSSProperties;
+
 export function Gallery() {
   const [selectedImage, setSelectedImage] = useState<(typeof galleryImages)[number] | null>(null);
+
+  const preventContextMenu = (event: { preventDefault: () => void }) => {
+    event.preventDefault();
+  };
+
+  const preventPinchZoom = (event: TouchEvent) => {
+    if (event.touches.length > 1) {
+      event.preventDefault();
+    }
+  };
+
+  const preventTrackpadZoom = (event: WheelEvent) => {
+    if (event.ctrlKey) {
+      event.preventDefault();
+    }
+  };
 
   return (
     <>
@@ -129,6 +152,10 @@ export function Gallery() {
             role="dialog"
             aria-modal="true"
             aria-label={`${selectedImage.alt} 확대 보기`}
+            onContextMenu={preventContextMenu}
+            onTouchMove={preventPinchZoom}
+            onWheel={preventTrackpadZoom}
+            style={protectedImageStyle}
           >
             <motion.div
               className="relative max-h-[88vh] w-full max-w-xl rounded-[2rem] border-[14px] border-white bg-white p-2 shadow-2xl ring-1 ring-rose-100"
@@ -137,12 +164,20 @@ export function Gallery() {
               exit={{ opacity: 0, scale: 0.9, y: 16 }}
               transition={{ type: 'spring', stiffness: 260, damping: 24 }}
               onClick={(event) => event.stopPropagation()}
+              onContextMenu={preventContextMenu}
+              onTouchMove={preventPinchZoom}
+              onWheel={preventTrackpadZoom}
+              style={protectedImageStyle}
             >
               <div className="overflow-hidden rounded-[1.25rem] bg-neutral-100">
                 <ImageWithFallback
                   src={selectedImage.src}
                   alt={selectedImage.alt}
                   className="max-h-[74vh] w-full object-contain"
+                  draggable={false}
+                  onContextMenu={preventContextMenu}
+                  onTouchMove={preventPinchZoom}
+                  style={protectedImageStyle}
                 />
               </div>
               <button
