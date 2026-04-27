@@ -118,7 +118,7 @@ export function Gallery() {
           <motion.button
             key={image.id}
             type="button"
-            className="aspect-square overflow-hidden rounded-lg bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:ring-offset-2"
+            className="relative aspect-square overflow-hidden rounded-lg bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:ring-offset-2"
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -134,8 +134,14 @@ export function Gallery() {
             <ImageWithFallback
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover"
+              className="pointer-events-none w-full h-full object-cover"
               loading="lazy"
+              draggable={false}
+            />
+            <span
+              className="absolute inset-0 z-10"
+              onContextMenu={preventContextMenu}
+              aria-hidden="true"
             />
           </motion.button>
         ))}
@@ -169,15 +175,27 @@ export function Gallery() {
               onWheel={preventTrackpadZoom}
               style={protectedImageStyle}
             >
-              <div className="overflow-hidden rounded-[1.25rem] bg-neutral-100">
+              <div
+                className="relative overflow-hidden rounded-[1.25rem] bg-neutral-100"
+                onContextMenu={preventContextMenu}
+                onTouchMove={preventPinchZoom}
+                style={protectedImageStyle}
+              >
                 <ImageWithFallback
                   src={selectedImage.src}
                   alt={selectedImage.alt}
-                  className="max-h-[74vh] w-full object-contain"
+                  className="pointer-events-none max-h-[74vh] w-full object-contain"
                   draggable={false}
                   onContextMenu={preventContextMenu}
                   onTouchMove={preventPinchZoom}
                   style={protectedImageStyle}
+                />
+                <div
+                  className="absolute inset-0 z-10"
+                  onContextMenu={preventContextMenu}
+                  onTouchMove={preventPinchZoom}
+                  style={protectedImageStyle}
+                  aria-hidden="true"
                 />
               </div>
               <button
