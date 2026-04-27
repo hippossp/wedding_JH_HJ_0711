@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { Check, Heart, Lock, Pencil, Trash2 } from 'lucide-react';
+import { Check, Heart, Lock, Pencil, Shield, Trash2 } from 'lucide-react';
 
 type GuestBookSide = 'groom' | 'bride';
 
@@ -65,6 +65,7 @@ export function GuestBook() {
   const [lastSubmittedEntryId, setLastSubmittedEntryId] = useState<string | null>(null);
   const [adminPassword, setAdminPassword] = useState('');
   const [isAdmin, setIsAdmin] = useState(false);
+  const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [error, setError] = useState('');
@@ -304,21 +305,39 @@ export function GuestBook() {
         {error && <p className="mt-3 text-sm text-red-500 text-center">{error}</p>}
       </form>
 
-      <form onSubmit={unlockAdmin} className="mb-8 flex gap-2">
-        <input
-          type="password"
-          value={adminPassword}
-          onChange={(event) => setAdminPassword(event.target.value)}
-          className="min-w-0 flex-1 px-4 py-2 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-neutral-400"
-          placeholder="관리자 비밀번호"
-        />
+      <div className="mb-4 flex items-center justify-between">
+        <p className="text-sm text-neutral-500">남겨주신 마음들</p>
         <button
-          type="submit"
-          className="px-4 py-2 bg-neutral-800 text-white rounded-md text-sm hover:bg-neutral-700 transition-colors"
+          type="button"
+          onClick={() => setShowAdminLogin((prev) => !prev)}
+          className={`flex h-9 w-9 items-center justify-center rounded-full border transition-colors ${
+            isAdmin
+              ? 'border-rose-200 bg-rose-50 text-rose-500'
+              : 'border-neutral-200 bg-white text-neutral-400 hover:text-neutral-700'
+          }`}
+          aria-label="관리자 보기"
         >
-          {isAdmin ? '새로고침' : '관리자 보기'}
+          <Shield className="h-4 w-4" />
         </button>
-      </form>
+      </div>
+
+      {showAdminLogin && (
+        <form onSubmit={unlockAdmin} className="mb-8 flex gap-2 rounded-lg border border-neutral-200 bg-white p-3">
+          <input
+            type="password"
+            value={adminPassword}
+            onChange={(event) => setAdminPassword(event.target.value)}
+            className="min-w-0 flex-1 px-3 py-2 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-neutral-400"
+            placeholder="관리자 비밀번호"
+          />
+          <button
+            type="submit"
+            className="px-4 py-2 bg-neutral-800 text-white rounded-md text-sm hover:bg-neutral-700 transition-colors"
+          >
+            {isAdmin ? '새로고침' : '확인'}
+          </button>
+        </form>
+      )}
 
       <div className="space-y-4">
         {isLoading ? (
